@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study/pages/freezed/member.dart';
-import 'package:flutter_study/pages/freezed/user.dart';
+import 'package:flutter_study/pages/freezed/model/member.dart';
+import 'package:flutter_study/pages/freezed/model/person.dart';
+import 'package:flutter_study/pages/freezed/model/user.dart';
 
 class FreezedScreen extends StatefulWidget {
   const FreezedScreen({Key? key}) : super(key: key);
@@ -13,6 +14,18 @@ class _FreezedScreenState extends State<FreezedScreen> {
   final user1 = User(id: 1, name: 'leeeeeoy', job: 'student');
   final user2 = User(id: 1, name: 'leeeeeoy', job: 'student');
   final user3 = User(id: 3, name: 'leeeeeoy', job: 'programer');
+
+  final person = Person(id: 1, name: 'leeeeeoy', age: 25, statusCode: 200);
+  final personLoading = Person.loading(statusCode: 401);
+  final personError = Person.error('failed to fetch', statusCode: 401);
+
+  mapWhen(Person person) {
+    return person.when(
+      (id, name, age, statusCode) => person.toString(),
+      loading: (statusCode) => 'loading...',
+      error: (message, statusCode) => 'error...',
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -118,6 +131,27 @@ class _FreezedScreenState extends State<FreezedScreen> {
                       print(member3);
                     },
                     child: Text('member3')),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    print(person.toString());
+                    print(personLoading.toString());
+                    print(personError.toString());
+                  },
+                  child: Text('Union Test'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    print(mapWhen(person));
+                    print(mapWhen(personLoading));
+                    print(mapWhen(personError));
+                  },
+                  child: Text('Peson when'),
+                ),
               ],
             ),
           ],
