@@ -39,6 +39,12 @@ class _RootPageState extends State<RootPage> {
               child: Text('SliverAppbar'),
             ),
             ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/retrofit_with_freezed');
+              },
+              child: Text('Retrofit with Freezed'),
+            ),
+            ElevatedButton(
               onPressed: null,
               child: null,
             ),

@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'person.dart';
 
@@ -58,6 +59,13 @@ mixin _$Person {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(int id, String name, int age, int statusCode)? $default, {
+    TResult Function(int statusCode)? loading,
+    TResult Function(String message, int statusCode)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int id, String name, int age, int statusCode)? $default, {
     TResult Function(int statusCode)? loading,
@@ -70,6 +78,13 @@ mixin _$Person {
     TResult Function(_Person value) $default, {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(_Person value)? $default, {
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -221,6 +236,16 @@ class _$_Person implements _Person {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(int id, String name, int age, int statusCode)? $default, {
+    TResult Function(int statusCode)? loading,
+    TResult Function(String message, int statusCode)? error,
+  }) {
+    return $default?.call(id, name, age, statusCode);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int id, String name, int age, int statusCode)? $default, {
     TResult Function(int statusCode)? loading,
@@ -241,6 +266,16 @@ class _$_Person implements _Person {
     required TResult Function(_Error value) error,
   }) {
     return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(_Person value)? $default, {
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
+  }) {
+    return $default?.call(this);
   }
 
   @override
@@ -348,6 +383,16 @@ class _$_Loading implements _Loading {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(int id, String name, int age, int statusCode)? $default, {
+    TResult Function(int statusCode)? loading,
+    TResult Function(String message, int statusCode)? error,
+  }) {
+    return loading?.call(statusCode);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int id, String name, int age, int statusCode)? $default, {
     TResult Function(int statusCode)? loading,
@@ -368,6 +413,16 @@ class _$_Loading implements _Loading {
     required TResult Function(_Error value) error,
   }) {
     return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(_Person value)? $default, {
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
+  }) {
+    return loading?.call(this);
   }
 
   @override
@@ -481,6 +536,16 @@ class _$_Error implements _Error {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(int id, String name, int age, int statusCode)? $default, {
+    TResult Function(int statusCode)? loading,
+    TResult Function(String message, int statusCode)? error,
+  }) {
+    return error?.call(message, statusCode);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int id, String name, int age, int statusCode)? $default, {
     TResult Function(int statusCode)? loading,
@@ -501,6 +566,16 @@ class _$_Error implements _Error {
     required TResult Function(_Error value) error,
   }) {
     return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(_Person value)? $default, {
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
+  }) {
+    return error?.call(this);
   }
 
   @override

@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'member.dart';
 
@@ -145,7 +146,7 @@ class _$_Member extends _Member {
         super._();
 
   factory _$_Member.fromJson(Map<String, dynamic> json) =>
-      _$_$_MemberFromJson(json);
+      _$$_MemberFromJson(json);
 
   @override
   final int id;
@@ -185,7 +186,7 @@ class _$_Member extends _Member {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_MemberToJson(this);
+    return _$$_MemberToJson(this);
   }
 }
 
@@ -338,8 +339,7 @@ class __$TeamCopyWithImpl<$Res> extends _$TeamCopyWithImpl<$Res>
 class _$_Team implements _Team {
   _$_Team({required this.id, required this.name, required this.company});
 
-  factory _$_Team.fromJson(Map<String, dynamic> json) =>
-      _$_$_TeamFromJson(json);
+  factory _$_Team.fromJson(Map<String, dynamic> json) => _$$_TeamFromJson(json);
 
   @override
   final int id;
@@ -379,7 +379,7 @@ class _$_Team implements _Team {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_TeamToJson(this);
+    return _$$_TeamToJson(this);
   }
 }
 
@@ -509,7 +509,7 @@ class _$_Company implements _Company {
   _$_Company({required this.id, required this.name});
 
   factory _$_Company.fromJson(Map<String, dynamic> json) =>
-      _$_$_CompanyFromJson(json);
+      _$$_CompanyFromJson(json);
 
   @override
   final int id;
@@ -544,7 +544,7 @@ class _$_Company implements _Company {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_CompanyToJson(this);
+    return _$$_CompanyToJson(this);
   }
 }
 
