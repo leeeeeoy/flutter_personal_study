@@ -8,7 +8,7 @@ part of 'rest_client.dart';
 
 class _RestClient implements RestClient {
   _RestClient(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'http://192.168.0.3:8080';
+    baseUrl ??= 'http://localhost:8080';
   }
 
   final Dio _dio;
