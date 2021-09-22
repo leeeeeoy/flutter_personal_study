@@ -51,6 +51,12 @@ class _RootPageState extends State<RootPage> {
               child: Text('BottomNavigation'),
             ),
             ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/getx_pattern');
+              },
+              child: Text('Getx_pattern'),
+            ),
+            ElevatedButton(
               onPressed: null,
               child: null,
             ),
