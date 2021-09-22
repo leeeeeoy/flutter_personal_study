@@ -62,7 +62,6 @@ class _ResultPageState extends State<ResultPage> {
                     studentColumn(students[2]),
                   ],
                 );
-                ;
               },
             ),
             SizedBox(
