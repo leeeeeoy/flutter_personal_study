@@ -57,8 +57,10 @@ class _RootPageState extends State<RootPage> {
               child: Text('Getx_pattern'),
             ),
             ElevatedButton(
-              onPressed: null,
-              child: null,
+              onPressed: () {
+                Get.toNamed('/infinite');
+              },
+              child: Text('Infinite Scroll'),
             ),
           ],
         ),

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class HomeController extends GetxController {
   final MyRepository repository;
-  HomeController({required this.repository}) : assert(repository != null);
+  HomeController({required this.repository});
 
   final _postsList = <MyModel>[].obs;
   get postList => this._postsList.value;

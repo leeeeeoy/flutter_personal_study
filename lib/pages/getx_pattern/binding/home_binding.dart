@@ -7,14 +7,8 @@ import 'package:http/http.dart' as http;
 class HomeBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<HomeController>(() {
-      return HomeController(
-        repository: MyRepository(
-          apiClient: MyApiClient(
-            httpClient: http.Client(),
-          ),
-        ),
-      );
-    });
+    Get.lazyPut<HomeController>(() => HomeController(
+        repository:
+            MyRepository(apiClient: MyApiClient(httpClient: http.Client()))));
   }
 }
