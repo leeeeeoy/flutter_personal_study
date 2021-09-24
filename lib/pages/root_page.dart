@@ -62,6 +62,12 @@ class _RootPageState extends State<RootPage> {
               },
               child: Text('Infinite Scroll'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/bloc');
+              },
+              child: Text('Bloc pattern'),
+            ),
           ],
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:flutter_study/pages/bloc_pattern/screen/bloc_screen.dart';
 import 'package:flutter_study/pages/bottom_navigation/bottom_navigation_screen.dart';
 import 'package:flutter_study/pages/freezed/freezed_screen.dart';
 import 'package:flutter_study/pages/getx_pattern/binding/home_binding.dart';
@@ -24,5 +25,9 @@ List<GetPage> routes = [
   GetPage(
     name: '/infinite',
     page: () => MyScrollPage(),
+  ),
+  GetPage(
+    name: '/bloc',
+    page: () => BlocScreen(),
   ),
 ];
