@@ -17,8 +17,9 @@ class _RootPageState extends State<RootPage> {
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child: Wrap(
+          alignment: WrapAlignment.spaceAround,
+          spacing: 10.0,
           children: [
             ElevatedButton(
               onPressed: () {
@@ -67,6 +68,12 @@ class _RootPageState extends State<RootPage> {
                 Get.toNamed('/bloc');
               },
               child: Text('Bloc pattern'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/multi_scroll');
+              },
+              child: Text('Multi Scroll'),
             ),
           ],
         ),

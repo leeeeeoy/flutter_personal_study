@@ -4,6 +4,7 @@ import 'package:flutter_study/pages/freezed/freezed_screen.dart';
 import 'package:flutter_study/pages/getx_pattern/binding/home_binding.dart';
 import 'package:flutter_study/pages/getx_pattern/ui/home/home_page.dart';
 import 'package:flutter_study/pages/infinite_scroll/my_scroll_page.dart';
+import 'package:flutter_study/pages/multi_scroll/multi_scroll_page.dart';
 import 'package:flutter_study/pages/retrofit/retrofit_screen.dart';
 import 'package:flutter_study/pages/retrofit_with_freezed/result_page.dart';
 import 'package:flutter_study/pages/root_page.dart';
@@ -29,5 +30,9 @@ List<GetPage> routes = [
   GetPage(
     name: '/bloc',
     page: () => BlocScreen(),
+  ),
+  GetPage(
+    name: '/multi_scroll',
+    page: () => MultiScrollPage(),
   ),
 ];
