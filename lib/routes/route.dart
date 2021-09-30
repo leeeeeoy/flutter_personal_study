@@ -10,6 +10,7 @@ import 'package:flutter_study/pages/retrofit/retrofit_screen.dart';
 import 'package:flutter_study/pages/retrofit_with_freezed/result_page.dart';
 import 'package:flutter_study/pages/root_page.dart';
 import 'package:flutter_study/pages/screen_util/screen_util_page.dart';
+import 'package:flutter_study/pages/shared_preferences/shared_preferences_page.dart';
 import 'package:flutter_study/pages/sliverappbar/sliver_appbar_screen.dart';
 import 'package:get/get.dart';
 
@@ -39,4 +40,5 @@ List<GetPage> routes = [
   ),
   GetPage(name: '/screen_util', page: () => ScreenUtilPage()),
   GetPage(name: '/filtering', page: () => FilteringPage()),
+  GetPage(name: '/shared_preferences', page: () => SharedPreferencesPage()),
 ];

@@ -87,6 +87,12 @@ class _RootPageState extends State<RootPage> {
               },
               child: Text('Filtering'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/shared_preferences');
+              },
+              child: Text('Shared preferences'),
+            ),
           ],
         ),
       ),
