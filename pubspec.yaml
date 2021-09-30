@@ -21,6 +21,12 @@ dependencies:
   equatable:
   flutter_screenutil:
   shared_preferences:
+  get_it:
+  rxdart:
+  moor:
+  sqlite3_flutter_libs:
+  path_provider:
+  path:
 
   cupertino_icons: ^1.0.2
 
@@ -31,6 +37,7 @@ dev_dependencies:
   build_runner:
   json_serializable:
   freezed:
+  moor_generator:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
