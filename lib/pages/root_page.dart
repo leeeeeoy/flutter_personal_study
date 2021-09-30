@@ -75,6 +75,18 @@ class _RootPageState extends State<RootPage> {
               },
               child: Text('Multi Scroll'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/screen_util');
+              },
+              child: Text('Screen Util'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/filtering');
+              },
+              child: Text('Filtering'),
+            ),
           ],
         ),
       ),
