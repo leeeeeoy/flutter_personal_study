@@ -4,11 +4,13 @@ import 'package:flutter_study/pages/filtering/filtering_page.dart';
 import 'package:flutter_study/pages/freezed/freezed_screen.dart';
 import 'package:flutter_study/pages/getx_pattern/binding/home_binding.dart';
 import 'package:flutter_study/pages/getx_pattern/ui/home/home_page.dart';
+import 'package:flutter_study/pages/grid_view/result_grid_view.dart';
 import 'package:flutter_study/pages/infinite_scroll/my_scroll_page.dart';
 import 'package:flutter_study/pages/moor/moor_page.dart';
 import 'package:flutter_study/pages/multi_scroll/multi_scroll_page.dart';
 import 'package:flutter_study/pages/retrofit/retrofit_screen.dart';
 import 'package:flutter_study/pages/retrofit_with_freezed/result_page.dart';
+import 'package:flutter_study/pages/riverpod/riverpod_page.dart';
 import 'package:flutter_study/pages/root_page.dart';
 import 'package:flutter_study/pages/screen_util/screen_util_page.dart';
 import 'package:flutter_study/pages/shared_preferences/shared_preferences_page.dart';
@@ -43,4 +45,6 @@ List<GetPage> routes = [
   GetPage(name: '/filtering', page: () => FilteringPage()),
   GetPage(name: '/shared_preferences', page: () => SharedPreferencesPage()),
   GetPage(name: '/moor', page: () => MoorPage()),
+  GetPage(name: '/grid_view', page: () => ResultGridView()),
+  GetPage(name: '/riverpod', page: () => RiverpodPage()),
 ];

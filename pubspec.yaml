@@ -27,6 +27,8 @@ dependencies:
   sqlite3_flutter_libs:
   path_provider:
   path:
+  flutter_riverpod:
+  state_notifier:
 
   cupertino_icons: ^1.0.2
 

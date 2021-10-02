@@ -99,6 +99,18 @@ class _RootPageState extends State<RootPage> {
               },
               child: Text('Moor'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/grid_view');
+              },
+              child: Text('GridView'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/riverpod');
+              },
+              child: Text('Riverpod'),
+            ),
           ],
         ),
       ),
