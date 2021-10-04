@@ -111,6 +111,12 @@ class _RootPageState extends State<RootPage> {
               },
               child: Text('Riverpod'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/dio');
+              },
+              child: Text('Dio'),
+            ),
           ],
         ),
       ),

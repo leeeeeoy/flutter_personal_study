@@ -1,5 +1,6 @@
 import 'package:flutter_study/pages/bloc_pattern/screen/bloc_screen.dart';
 import 'package:flutter_study/pages/bottom_navigation/bottom_navigation_screen.dart';
+import 'package:flutter_study/pages/dio/dio_result_page.dart';
 import 'package:flutter_study/pages/filtering/filtering_page.dart';
 import 'package:flutter_study/pages/freezed/freezed_screen.dart';
 import 'package:flutter_study/pages/getx_pattern/binding/home_binding.dart';
@@ -47,4 +48,5 @@ List<GetPage> routes = [
   GetPage(name: '/moor', page: () => MoorPage()),
   GetPage(name: '/grid_view', page: () => ResultGridView()),
   GetPage(name: '/riverpod', page: () => RiverpodPage()),
+  GetPage(name: '/dio', page: () => DioResultPage()),
 ];
