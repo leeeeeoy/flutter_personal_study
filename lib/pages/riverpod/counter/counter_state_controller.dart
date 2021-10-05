@@ -20,6 +20,7 @@ class CounterStateController extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final counter1 = ref.watch(counterStateControllerProvider.notifier);
     final counter2 = ref.watch(counterStateControllerProvider);
+    ref.listen(counterStateControllerProvider, (int count) {});
 
     return Scaffold(
       appBar: AppBar(title: const Text('Counter example')),
