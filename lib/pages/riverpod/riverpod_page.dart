@@ -4,6 +4,8 @@ import 'package:flutter_study/pages/riverpod/counter/counter_state_notifier_prov
 import 'package:flutter_study/pages/riverpod/counter/counter_state_provider.dart';
 import 'package:flutter_study/pages/riverpod/practice/practice_page.dart';
 import 'package:flutter_study/pages/riverpod/weather_app/pages/weather_home_page.dart';
+import 'package:flutter_study/pages/riverpod/weather_app_v2/pages/login_page.dart';
+import 'package:flutter_study/pages/riverpod/weather_app_v2/pages/weather_home_page_v2.dart';
 import 'package:get/get.dart';
 
 class RiverpodPage extends StatelessWidget {
@@ -43,6 +45,12 @@ class RiverpodPage extends StatelessWidget {
                 Get.to(WeatherHomePage());
               },
               child: Text('Weather app'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Get.to(LoginPage());
+              },
+              child: Text('Weather app v2'),
             ),
             ElevatedButton(
               onPressed: () {

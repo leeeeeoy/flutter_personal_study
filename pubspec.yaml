@@ -28,7 +28,7 @@ dependencies:
   path_provider:
   path:
   flutter_riverpod:
-  state_notifier:
+  provider:
 
   cupertino_icons: ^1.0.2
 
