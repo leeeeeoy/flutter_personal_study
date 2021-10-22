@@ -17,7 +17,7 @@ class _SliverAppbarScreenState extends State<SliverAppbarScreen> {
       child: Scaffold(
         body: CustomScrollView(
           slivers: [
-            MySliverToBoxAdapter(),
+            // MySliverToBoxAdapter(),
             MySliverAppbar(),
             MySliverGrid(),
           ],

@@ -14,44 +14,54 @@ class _MultiScrollPageState extends State<MultiScrollPage> {
       appBar: AppBar(
         title: Text('Multi Scroll'),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(20),
-              height: 300,
-              color: Colors.lightBlue.shade100,
-              child: ListView.builder(
-                itemBuilder: (_, index) => Card(
-                  child: Text('Card $index'),
+      body: Row(
+        children: [
+          Expanded(
+            flex: 1,
+            child: ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (_, index) => Container(
+                height: 250,
+                alignment: Alignment.center,
+                color: Colors.cyan[100 * (index % 9)],
+                child: Text(
+                  'Grid Item ${index + 1}',
+                  style: TextStyle(fontSize: 20),
                 ),
-                itemCount: 50,
               ),
             ),
-            Container(
-              padding: const EdgeInsets.all(20),
-              height: 300,
-              color: Colors.lightBlue.shade200,
-              child: ListView.builder(
-                itemBuilder: (_, index) => Card(
-                  child: Text('Card $index'),
+          ),
+          Expanded(
+            flex: 1,
+            child: ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (_, index) => Container(
+                height: 200,
+                alignment: Alignment.center,
+                color: Colors.cyan[100 * (index % 9)],
+                child: Text(
+                  'Grid Item ${index + 1}',
+                  style: TextStyle(fontSize: 20),
                 ),
-                itemCount: 50,
               ),
             ),
-            Container(
-              padding: const EdgeInsets.all(20),
-              height: 300,
-              color: Colors.lightBlue.shade300,
-              child: ListView.builder(
-                itemBuilder: (_, index) => Card(
-                  child: Text('Card $index'),
+          ),
+          Expanded(
+            flex: 1,
+            child: ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (_, index) => Container(
+                height: 150,
+                alignment: Alignment.center,
+                color: Colors.cyan[100 * (index % 9)],
+                child: Text(
+                  'Grid Item ${index + 1}',
+                  style: TextStyle(fontSize: 20),
                 ),
-                itemCount: 50,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

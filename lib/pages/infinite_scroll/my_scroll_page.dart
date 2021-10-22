@@ -1,74 +1,80 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study/pages/infinite_scroll/my_scroll_controller.dart';
-import 'package:get/get.dart';
+import 'package:flutter_study/pages/infinite_scroll/provider.dart';
+import 'package:provider/provider.dart';
 
-class MyScrollPage extends StatelessWidget {
-  final controller = Get.put<MyScrollController>(MyScrollController());
+class MyScrollPage extends StatefulWidget {
+  @override
+  State<MyScrollPage> createState() => _MyScrollPageState();
+}
+
+class _MyScrollPageState extends State<MyScrollPage> {
+  @override
+  void initState() {
+    super.initState();
+
+    Future.microtask(() {
+      Provider.of<AjaxProvider>(context, listen: false).fetchItems();
+    });
+  }
+
+  _renderListView() {
+    final provider = Provider.of<AjaxProvider>(context);
+
+    final cache = provider.cache;
+
+    final loading = provider.loading;
+
+    if (loading && cache.length == 0) {
+      return Center(
+        child: CircularProgressIndicator(),
+      );
+    }
+
+    if (!loading && cache.length == 0) {
+      return Center(
+        child: Text('아이템이 없습니다.'),
+      );
+    }
+
+    return ListView.builder(
+      itemCount: cache.length + 1,
+      itemBuilder: (context, index) {
+        if (index < cache.length) {
+          return ListTile(
+            title: Text(
+              cache[index].toString(),
+            ),
+          );
+        }
+
+        if (!provider.loading && provider.hasMore) {
+          Future.microtask(() {
+            provider.fetchItems(nextId: index);
+          });
+        }
+
+        if (provider.hasMore) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        } else {
+          return Center(
+            child: Text('더이상 아이템이 없습니다.'),
+          );
+        }
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ScrollController'),
-      ),
-      body: Obx(
-        () => Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: ListView.separated(
-            controller: controller.scrollController.value,
-            separatorBuilder: (_, index) => Divider(),
-            itemCount: controller.data.length + 1,
-            itemBuilder: (_, index) {
-              if (index < controller.data.length) {
-                var datum = controller.data[index];
-                return Material(
-                  elevation: 10.0,
-                  child: Container(
-                    padding: const EdgeInsets.all(10.0),
-                    color: Colors.lightBlue[100 * (index % 9)],
-                    child: ListTile(
-                      leading: Icon(Icons.android_sharp),
-                      title: Text('$datum 번째 데이터'),
-                      trailing: Icon(Icons.arrow_forward_outlined),
-                    ),
-                  ),
-                );
-              }
-              if (controller.hasMore.value || controller.isLoading.value) {
-                return Center(child: RefreshProgressIndicator());
-              }
-              return Container(
-                padding: const EdgeInsets.all(10.0),
-                child: Center(
-                  child: Column(
-                    children: [
-                      Text('데이터의 마지막 입니다'),
-                    ],
-                  ),
-                ),
-              );
-            },
-          ),
+        title: Text(
+          'Provider Infinite Scroll',
         ),
       ),
-      bottomNavigationBar: Obx(() => AnimatedContainer(
-            decoration: BoxDecoration(
-              color: Colors.lightBlue,
-            ),
-            curve: Curves.fastLinearToSlowEaseIn,
-            duration: Duration(milliseconds: 200),
-            height: controller.isShow.value ? 60 : 0,
-            child: Container(
-              child: Center(
-                  child: Text(
-                'BottomNavigationBar',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              )),
-            ),
-          )),
+      body: _renderListView(),
     );
   }
 }

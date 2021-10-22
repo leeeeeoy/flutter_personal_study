@@ -12,10 +12,41 @@ class MySliverGrid extends StatelessWidget {
       //   maxCrossAxisExtent: 250,
       // ),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
+        crossAxisCount: 3,
       ),
       delegate: SliverChildBuilderDelegate(
         (BuildContext context, int index) {
+          if (index == 0) {
+            Container(
+              alignment: Alignment.center,
+              height: 200,
+              color: Colors.cyan[100 * (index % 9)],
+              child: Text(
+                'Grid Item ${index + 1}',
+                style: TextStyle(fontSize: 20),
+              ),
+            );
+          } else if (index == 1) {
+            return Container(
+              alignment: Alignment.center,
+              height: 180,
+              color: Colors.cyan[100 * (index % 9)],
+              child: Text(
+                'Grid Item ${index + 1}',
+                style: TextStyle(fontSize: 20),
+              ),
+            );
+          } else if (index == 2) {
+            return Container(
+              alignment: Alignment.center,
+              height: 150,
+              color: Colors.cyan[100 * (index % 9)],
+              child: Text(
+                'Grid Item ${index + 1}',
+                style: TextStyle(fontSize: 20),
+              ),
+            );
+          }
           return Container(
             alignment: Alignment.center,
             color: Colors.cyan[100 * (index % 9)],
