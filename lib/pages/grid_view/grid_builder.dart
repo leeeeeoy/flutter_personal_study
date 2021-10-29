@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class GridBuilder extends StatefulWidget {
   const GridBuilder({Key? key}) : super(key: key);
@@ -10,21 +11,35 @@ class GridBuilder extends StatefulWidget {
 class _GridBuilderState extends State<GridBuilder> {
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-        mainAxisSpacing: 5,
-        crossAxisSpacing: 5,
+    return StaggeredGridView.countBuilder(
+      crossAxisCount: 3,
+      itemCount: 20,
+      itemBuilder: (BuildContext context, int index) {
+        return Container(
+          color: Colors.green,
+          child: Center(
+            child: CircleAvatar(
+              backgroundColor: Colors.white,
+              child: Text('$index'),
+            ),
+          ),
+        );
+      },
+      staggeredTileBuilder: (int index) => StaggeredTile.count(
+        1,
+        cnt(index),
       ),
-      itemBuilder: (_, index) => Container(
-        alignment: Alignment.center,
-        color: Colors.purple[100 * (index % 10)],
-        child: Text(
-          'Grid Item $index',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
-      primary: false,
+      mainAxisSpacing: 4.0,
+      crossAxisSpacing: 4.0,
     );
   }
+}
+
+double cnt(int index) {
+  if (index == 1)
+    return 1.5;
+  else if (index == 2)
+    return 1.0;
+  else
+    return 2;
 }
