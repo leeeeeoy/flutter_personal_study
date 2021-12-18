@@ -117,6 +117,15 @@ class _RootPageState extends State<RootPage> {
               },
               child: Text('Dio'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/stream');
+              },
+              child: Text('Stream'),
+            ),
+            ElevatedButton(
+                onPressed: () => Get.toNamed('/list_view'),
+                child: Text('ListView')),
           ],
         ),
       ),
