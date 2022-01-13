@@ -15,6 +15,7 @@ import 'package:flutter_study/pages/state_management/getx_pattern/binding/home_b
 import 'package:flutter_study/pages/state_management/getx_pattern/ui/home/home_page.dart';
 import 'package:flutter_study/pages/state_management/riverpod/riverpod_page.dart';
 import 'package:flutter_study/pages/steam/stream_page.dart';
+import 'package:flutter_study/pages/text/text_page.dart';
 import 'package:flutter_study/pages/widget/grid_view/result_grid_view.dart';
 import 'package:flutter_study/pages/widget/list_view/list_view_page.dart';
 import 'package:flutter_study/pages/widget/sliverappbar/sliver_appbar_screen.dart';
@@ -41,4 +42,5 @@ List<GetPage> routes = [
   GetPage(name: '/dio', page: () => DioResultPage()),
   GetPage(name: '/stream', page: () => StreamPage()),
   GetPage(name: '/list_view', page: () => ListViewPage()),
+  GetPage(name: '/text', page: () => TextPage()),
 ];

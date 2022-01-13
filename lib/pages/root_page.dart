@@ -126,6 +126,9 @@ class _RootPageState extends State<RootPage> {
             ElevatedButton(
                 onPressed: () => Get.toNamed('/list_view'),
                 child: Text('ListView')),
+            ElevatedButton(
+                onPressed: () => Get.toNamed('/text'),
+                child: Text('TextStyle')),
           ],
         ),
       ),
