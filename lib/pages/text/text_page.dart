@@ -11,6 +11,7 @@ class TextPage extends StatelessWidget {
           height: double.infinity,
           width: double.infinity,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
                 color: Colors.lightBlueAccent,
@@ -20,6 +21,28 @@ class TextPage extends StatelessWidget {
                     fontSize: 24,
                     height: 1.5,
                   ),
+                ),
+              ),
+              Container(
+                color: Colors.lightBlueAccent,
+                child: Text(
+                  '텍스트 스타일 테스트입니다.\n두번째 줄바꿈 테스트입니다',
+                  style: TextStyle(
+                    fontSize: 24,
+                    height: 1.5,
+                  ),
+                  textAlign: TextAlign.start,
+                ),
+              ),
+              Container(
+                color: Colors.lightBlueAccent,
+                child: Text(
+                  '텍스트 스타일 테스트입니다.\n두번째 줄바꿈 테스트입니다',
+                  style: TextStyle(
+                    fontSize: 24,
+                    height: 1.5,
+                  ),
+                  textAlign: TextAlign.justify,
                 ),
               ),
               Container(
