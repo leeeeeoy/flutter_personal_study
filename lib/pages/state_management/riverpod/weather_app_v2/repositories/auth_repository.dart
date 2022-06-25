@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_study/pages/state_management/riverpod/weather_app_v2/providers/provider.dart';
@@ -17,12 +18,12 @@ class AuthRepository {
     final String buildFlavor = read(appConfigProvider).state.buildFlavor;
 
     final Uri url = Uri.parse('$baseUrl/login');
-    print('url: $url');
+    log('url: $url');
 
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
 
     if (buildFlavor == 'dev') {
-      print('EMAIL: $email, PASSWORD: $password');
+      log('EMAIL: $email, PASSWORD: $password');
     }
 
     final http.Response response = await http.post(
@@ -40,7 +41,7 @@ class AuthRepository {
 
     if (response.statusCode != 200) {
       if (buildFlavor == 'dev') {
-        print('${response.statusCode}: ${response.reasonPhrase}');
+        log('${response.statusCode}: ${response.reasonPhrase}');
       }
       throw Exception('Fail to login');
     }
@@ -49,7 +50,7 @@ class AuthRepository {
     final token = responseBody['token'];
 
     if (buildFlavor == 'dev') {
-      print('token: $token');
+      log('token: $token');
     }
 
     final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -57,7 +58,7 @@ class AuthRepository {
   }
 
   Future<bool> tryAutoLogin() async {
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.containsKey('jwtToken');
   }

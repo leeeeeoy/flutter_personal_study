@@ -14,7 +14,7 @@ class RiverpodPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Riverpod list'),
+        title: const Text('Riverpod list'),
       ),
       body: Center(
         child: Wrap(
@@ -23,39 +23,39 @@ class RiverpodPage extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                Get.to(ConterStateProvider());
+                Get.to(const ConterStateProvider());
               },
-              child: Text('ConterStateProvider'),
+              child: const Text('ConterStateProvider'),
             ),
             ElevatedButton(
               onPressed: () {
-                Get.to(ConterStateNotifierProvider());
+                Get.to(const ConterStateNotifierProvider());
               },
-              child: Text('ConterStateNotifierProvider'),
+              child: const Text('ConterStateNotifierProvider'),
             ),
             ElevatedButton(
               onPressed: () {
-                Get.to(CounterStateController());
+                Get.to(const CounterStateController());
               },
-              child: Text('ConterStateController'),
+              child: const Text('ConterStateController'),
             ),
             ElevatedButton(
               onPressed: () {
-                Get.to(WeatherHomePage());
+                Get.to(const WeatherHomePage());
               },
-              child: Text('Weather app'),
+              child: const Text('Weather app'),
             ),
             ElevatedButton(
               onPressed: () {
-                Get.to(LoginPage());
+                Get.to(const LoginPage());
               },
-              child: Text('Weather app v2'),
+              child: const Text('Weather app v2'),
             ),
             ElevatedButton(
               onPressed: () {
-                Get.to(PracticePage());
+                Get.to(const PracticePage());
               },
-              child: Text('Riverpod practice'),
+              child: const Text('Riverpod practice'),
             ),
           ],
         ),

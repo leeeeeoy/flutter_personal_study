@@ -15,8 +15,9 @@ class TextPage extends StatelessWidget {
             children: [
               Container(
                 color: Colors.lightBlueAccent,
-                child: Text(
-                  '텍스트 스타일 테스트입니다.\n두번째 줄바꿈 테스트입니다',
+                child: const Text(
+                  '''
+텍스트 스타일 테스트입니다.\n두번째 줄바꿈 테스트입니다''',
                   style: TextStyle(
                     fontSize: 24,
                     height: 1.5,
@@ -25,7 +26,7 @@ class TextPage extends StatelessWidget {
               ),
               Container(
                 color: Colors.lightBlueAccent,
-                child: Text(
+                child: const Text(
                   '텍스트 스타일 테스트입니다.\n두번째 줄바꿈 테스트입니다',
                   style: TextStyle(
                     fontSize: 24,
@@ -36,7 +37,7 @@ class TextPage extends StatelessWidget {
               ),
               Container(
                 color: Colors.lightBlueAccent,
-                child: Text(
+                child: const Text(
                   '텍스트 스타일 테스트입니다.\n두번째 줄바꿈 테스트입니다',
                   style: TextStyle(
                     fontSize: 24,
@@ -47,7 +48,7 @@ class TextPage extends StatelessWidget {
               ),
               Container(
                 color: Colors.redAccent,
-                child: Text(
+                child: const Text(
                   '텍스트 스타일 테스트입니다.\n두번째 줄바꿈 테스트입니다',
                   style: TextStyle(
                     fontSize: 24,
@@ -56,7 +57,7 @@ class TextPage extends StatelessWidget {
               ),
               Container(
                 color: Colors.lightGreenAccent,
-                child: Text(
+                child: const Text(
                   '텍스트 스타일 테스트입니다.\n두번째 줄바꿈 테스트입니다',
                   style: TextStyle(
                     fontSize: 24,
@@ -66,7 +67,7 @@ class TextPage extends StatelessWidget {
               ),
               Container(
                 color: Colors.yellowAccent,
-                child: Text(
+                child: const Text(
                   '텍스트 스타일 테스트입니다.\n두번째 줄바꿈 테스트입니다',
                   style: TextStyle(
                     fontSize: 24,

@@ -5,7 +5,7 @@ class ResultGridView extends StatefulWidget {
   const ResultGridView({Key? key}) : super(key: key);
 
   @override
-  _ResultGridViewState createState() => _ResultGridViewState();
+  State<ResultGridView> createState() => _ResultGridViewState();
 }
 
 class _ResultGridViewState extends State<ResultGridView> {
@@ -13,9 +13,9 @@ class _ResultGridViewState extends State<ResultGridView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('GridView'),
+        title: const Text('GridView'),
       ),
-      body: Padding(
+      body: const Padding(
         padding: EdgeInsets.all(8),
         child: GridBuilder(),
       ),

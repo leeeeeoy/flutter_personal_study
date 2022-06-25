@@ -13,11 +13,11 @@ class MySliverAppbar extends StatelessWidget {
       backgroundColor: Colors.indigoAccent,
       expandedHeight: 120,
       title: Container(
-        padding: EdgeInsets.only(right: 150),
-        child: Text('SliverAppbar title'),
+        padding: const EdgeInsets.only(right: 150),
+        child: const Text('SliverAppbar title'),
       ),
       flexibleSpace: FlexibleSpaceBar(
-        titlePadding: EdgeInsets.only(
+        titlePadding: const EdgeInsets.only(
           top: 50,
           right: 50,
           left: 20,
@@ -29,7 +29,13 @@ class MySliverAppbar extends StatelessWidget {
               onPressed: () {},
             ),
             Container(
-              child: Center(
+              width: 120,
+              height: 30,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: Colors.grey.shade100,
+              ),
+              child: const Center(
                 child: Text(
                   'FlexibleSpaceBar',
                   style: TextStyle(
@@ -37,12 +43,6 @@ class MySliverAppbar extends StatelessWidget {
                     fontSize: 15,
                   ),
                 ),
-              ),
-              width: 120,
-              height: 30,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: Colors.grey.shade100,
               ),
             ),
           ],

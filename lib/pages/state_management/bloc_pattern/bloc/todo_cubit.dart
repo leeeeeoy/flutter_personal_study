@@ -12,7 +12,7 @@ class TodoCubit extends Cubit<TodoState> {
     try {
       emit(Loading());
 
-      final resp = await this.repository.listTodo();
+      final resp = await repository.listTodo();
 
       final todos = resp
           .map<Todo>(
@@ -48,7 +48,7 @@ class TodoCubit extends Cubit<TodoState> {
 
         emit(Loaded(todos: newTodos));
 
-        final resp = await this.repository.createTodo(newTodo);
+        final resp = await repository.createTodo(newTodo);
 
         emit(
           Loaded(
@@ -67,10 +67,7 @@ class TodoCubit extends Cubit<TodoState> {
   deleteTodo(Todo todo) async {
     try {
       if (state is Loaded) {
-        final newTodos = (state as Loaded)
-            .todos
-            .where((item) => item.id != todo.id)
-            .toList();
+        final newTodos = (state as Loaded).todos.where((item) => item.id != todo.id).toList();
 
         emit(Loaded(todos: newTodos));
 

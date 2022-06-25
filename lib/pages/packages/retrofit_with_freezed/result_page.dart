@@ -7,7 +7,7 @@ class ResultPage extends StatefulWidget {
   const ResultPage({Key? key}) : super(key: key);
 
   @override
-  _ResultPageState createState() => _ResultPageState();
+  State<ResultPage> createState() => _ResultPageState();
 }
 
 class _ResultPageState extends State<ResultPage> {
@@ -24,8 +24,8 @@ class _ResultPageState extends State<ResultPage> {
     return Column(
       children: [
         Text('${student.id}'),
-        Text('${student.name}'),
-        Text('${student.email}'),
+        Text(student.name),
+        Text(student.email),
         Text('${student.isLikeFlutter}'),
       ],
     );
@@ -35,20 +35,20 @@ class _ResultPageState extends State<ResultPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Retrofit with Freezed'),
+        title: const Text('Retrofit with Freezed'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('getStudents'),
+            const Text('getStudents'),
             FutureBuilder(
               future: client.getStudents(),
-              initialData: [],
+              initialData: const [],
               builder: (_, AsyncSnapshot snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 }
@@ -64,15 +64,15 @@ class _ResultPageState extends State<ResultPage> {
                 );
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            Text('getStudentByID'),
+            const Text('getStudentByID'),
             FutureBuilder(
               future: client.getStudentByID(1),
               builder: (_, AsyncSnapshot snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 }

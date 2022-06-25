@@ -10,7 +10,7 @@ class MySliverToBoxAdapter extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         height: 200,
         color: Colors.indigo,
-        child: Text(
+        child: const Text(
           'Sliver에 일반 Widget 올리기',
           style: TextStyle(
             fontWeight: FontWeight.bold,

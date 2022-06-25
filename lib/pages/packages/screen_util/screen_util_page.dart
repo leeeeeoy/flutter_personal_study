@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -5,17 +7,17 @@ class ScreenUtilPage extends StatefulWidget {
   const ScreenUtilPage({Key? key}) : super(key: key);
 
   @override
-  _ScreenUtilPageState createState() => _ScreenUtilPageState();
+  State<ScreenUtilPage> createState() => _ScreenUtilPageState();
 }
 
 class _ScreenUtilPageState extends State<ScreenUtilPage> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(480, 900),
+      designSize: const Size(480, 900),
       builder: () => Scaffold(
         appBar: AppBar(
-          title: Text('Screen Util'),
+          title: const Text('Screen Util'),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -23,12 +25,12 @@ class _ScreenUtilPageState extends State<ScreenUtilPage> {
           children: [
             InkWell(
               onTap: () {
-                print(MediaQuery.of(context).size.height);
-                print(MediaQuery.of(context).size.width);
-                print(200.w);
-                print(200.h);
-                print(1.h);
-                print(1.w);
+                log('${MediaQuery.of(context).size.height}');
+                log('${MediaQuery.of(context).size.width}');
+                log('${200.w}');
+                log('${200.h}');
+                log('${1.h}');
+                log('${1.w}');
               },
               child: Container(
                 width: 200,

@@ -5,7 +5,7 @@ class GridBuilder extends StatefulWidget {
   const GridBuilder({Key? key}) : super(key: key);
 
   @override
-  _GridBuilderState createState() => _GridBuilderState();
+  State<GridBuilder> createState() => _GridBuilderState();
 }
 
 class _GridBuilderState extends State<GridBuilder> {
@@ -36,10 +36,11 @@ class _GridBuilderState extends State<GridBuilder> {
 }
 
 double cnt(int index) {
-  if (index == 1)
+  if (index == 1) {
     return 1.5;
-  else if (index == 2)
+  } else if (index == 2) {
     return 1.0;
-  else
+  } else {
     return 2;
+  }
 }

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_study/pages/state_management/riverpod/weather_app/models/weather.dart';
 import 'package:flutter_study/pages/state_management/riverpod/weather_app/providers/provider.dart';
@@ -26,9 +28,8 @@ class WeatherState {
   }
 }
 
-final currentWeatherProvider =
-    StateNotifierProvider<CurrentWeather, WeatherState>((ref) {
-  print('>>> CurrentWeatherProvider <<<');
+final currentWeatherProvider = StateNotifierProvider<CurrentWeather, WeatherState>((ref) {
+  log('>>> CurrentWeatherProvider <<<');
 
   return CurrentWeather(read: ref.read);
 });
@@ -46,8 +47,7 @@ class CurrentWeather extends StateNotifier<WeatherState> {
     final String city = read(cityProvider).state;
 
     try {
-      final Weather weather =
-          await read(weatherRepositoryProvider).getWeather();
+      final Weather weather = await read(weatherRepositoryProvider).getWeather();
       state = state.copyWith(
         loading: false,
         weather: weather,
@@ -63,7 +63,7 @@ class CurrentWeather extends StateNotifier<WeatherState> {
 }
 
 final weatherStateProvider = Provider<WeatherState>((ref) {
-  print('>>> WeatherStateProvider <<<');
+  log('>>> WeatherStateProvider <<<');
   final WeatherState weather = ref.watch(currentWeatherProvider);
 
   return weather;

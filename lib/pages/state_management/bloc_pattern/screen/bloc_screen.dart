@@ -8,20 +8,17 @@ class BlocScreen extends StatefulWidget {
   const BlocScreen({Key? key}) : super(key: key);
 
   @override
-  _BlocScreenState createState() => _BlocScreenState();
+  State<BlocScreen> createState() => _BlocScreenState();
 }
 
 class _BlocScreenState extends State<BlocScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      // create: (_) => TodoBloc(
-      //   repository: TodoRepository(),
-      // ),
       create: (_) => TodoCubit(
         repository: TodoRepository(),
       ),
-      child: HomeWidget(),
+      child: const HomeWidget(),
     );
   }
 }
@@ -30,7 +27,7 @@ class HomeWidget extends StatefulWidget {
   const HomeWidget({Key? key}) : super(key: key);
 
   @override
-  _HomeWidgetState createState() => _HomeWidgetState();
+  State<HomeWidget> createState() => _HomeWidgetState();
 }
 
 class _HomeWidgetState extends State<HomeWidget> {
@@ -39,10 +36,6 @@ class _HomeWidgetState extends State<HomeWidget> {
   @override
   void initState() {
     super.initState();
-
-    // BlocProvider.of<TodoBloc>(context).add(
-    //   ListTodosEvent(),
-    // );
     BlocProvider.of<TodoCubit>(context).listTodo();
   }
 
@@ -50,7 +43,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bloc pattern'),
+        title: const Text('Bloc pattern'),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -59,7 +52,7 @@ class _HomeWidgetState extends State<HomeWidget> {
           //     );
           context.read<TodoCubit>().createTodo(title);
         },
-        child: Icon(Icons.edit),
+        child: const Icon(Icons.edit),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -67,10 +60,10 @@ class _HomeWidgetState extends State<HomeWidget> {
           children: [
             TextField(
               onChanged: (val) {
-                this.title = val;
+                title = val;
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 16.0,
             ),
             Expanded(
@@ -94,23 +87,20 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 // BlocProvider.of<TodoBloc>(context).add(
                                 //   DeleteTodoEvent(todo: item),
                                 // );
-                                BlocProvider.of<TodoCubit>(context)
-                                    .deleteTodo(item);
+                                BlocProvider.of<TodoCubit>(context).deleteTodo(item);
                               },
-                              child: Icon(Icons.delete),
+                              child: const Icon(Icons.delete),
                             ),
                           ],
                         );
                       },
-                      separatorBuilder: (_, index) => Divider(),
+                      separatorBuilder: (_, index) => const Divider(),
                       itemCount: items.length,
                     );
                   } else if (state is Error) {
-                    return Container(
-                      child: Text(state.message),
-                    );
+                    return Text(state.message);
                   } else if (state is Loading) {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(),
                     );
                   }

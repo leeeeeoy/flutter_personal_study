@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'member.g.dart';
@@ -18,7 +19,7 @@ class Member with _$Member {
   get nameLength => name.length;
 
   void hello() {
-    print('Member의 Custom method 입니다.');
+    log('Member의 Custom method 입니다.');
   }
 
   factory Member.fromJson(Map<String, dynamic> json) => _$MemberFromJson(json);
@@ -42,6 +43,5 @@ class Company with _$Company {
     required String name,
   }) = _Company;
 
-  factory Company.fromJson(Map<String, dynamic> json) =>
-      _$CompanyFromJson(json);
+  factory Company.fromJson(Map<String, dynamic> json) => _$CompanyFromJson(json);
 }

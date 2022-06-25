@@ -1,6 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final cityProvider = StateProvider<String>((ref) {
-  print('>>> CityProvider <<<');
+  log('>>> CityProvider <<<');
   return '';
 });

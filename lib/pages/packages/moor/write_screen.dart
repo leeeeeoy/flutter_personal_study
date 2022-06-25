@@ -9,7 +9,7 @@ class WriteScreen extends StatefulWidget {
   const WriteScreen({Key? key}) : super(key: key);
 
   @override
-  _WriteScreenState createState() => _WriteScreenState();
+  State<WriteScreen> createState() => _WriteScreenState();
 }
 
 class _WriteScreenState extends State<WriteScreen> {
@@ -23,10 +23,10 @@ class _WriteScreenState extends State<WriteScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Write Screen'),
+        title: const Text('Write Screen'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Form(
           key: formKey,
           child: Column(
@@ -40,20 +40,20 @@ class _WriteScreenState extends State<WriteScreen> {
                         if (formKey.currentState!.validate()) {
                           formKey.currentState!.save();
 
-                          if (this.content != null && this.title != null) {
+                          if (content != null && title != null) {
                             final dao = GetIt.instance<DiaryDao>();
                             dao.insertDiary(
                               DiaryCompanion(
-                                title: Value(this.title!),
-                                content: Value(this.content!),
+                                title: Value(title!),
+                                content: Value(content!),
                               ),
-                              this.tag!,
+                              tag!,
                             );
                             Get.back();
                           }
                         }
                       },
-                      child: Text('저장하기'),
+                      child: const Text('저장하기'),
                     ),
                   ),
                 ],
@@ -70,28 +70,28 @@ class _WriteScreenState extends State<WriteScreen> {
       child: Column(
         children: [
           TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: '제목',
             ),
             onSaved: (val) {
-              this.title = val;
+              title = val;
             },
           ),
           TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: '내용',
             ),
             maxLines: 10,
             onSaved: (val) {
-              this.content = val;
+              content = val;
             },
           ),
           TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: '태그',
             ),
             onSaved: (val) {
-              this.tag = val;
+              tag = val;
             },
           ),
         ],

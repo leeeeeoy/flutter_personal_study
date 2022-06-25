@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -9,19 +11,15 @@ class MyCounter extends StateNotifier<int> {
   void initCount() => state = 0;
 }
 
-final myCounterStateNotifierProvider =
-    StateNotifierProvider<MyCounter, int>((ref) {
+final myCounterStateNotifierProvider = StateNotifierProvider<MyCounter, int>((ref) {
   return MyCounter();
 });
 
 class PracticePage extends ConsumerWidget {
-  PracticePage({Key? key}) : super(key: key);
+  const PracticePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // MyCounter
-    final counterNotifier = ref.watch(myCounterStateNotifierProvider.notifier);
-
     // int
     final counter = ref.watch(myCounterStateNotifierProvider);
 
@@ -30,14 +28,14 @@ class PracticePage extends ConsumerWidget {
     ref.listen(
       myCounterStateNotifierProvider,
       ((int num) {
-        print('바뀔때마다 동작');
-        print('ref.listen: $num');
+        log('바뀔때마다 동작');
+        log('ref.listen: $num');
       }),
     );
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Riverpod Practice'),
+        title: const Text('Riverpod Practice'),
       ),
       body: Center(
         child: Consumer(builder: (context, ref, _) {
@@ -46,7 +44,7 @@ class PracticePage extends ConsumerWidget {
             children: [
               Text(
                 'ref.watch(provider): $counter',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                 ),
@@ -67,7 +65,7 @@ class PracticePage extends ConsumerWidget {
                 Icons.add,
               ),
             ),
-            SizedBox(width: 10.0),
+            const SizedBox(width: 10.0),
             FloatingActionButton(
               heroTag: '222',
               onPressed: () => counterReader.decrement(),
@@ -75,7 +73,7 @@ class PracticePage extends ConsumerWidget {
                 Icons.remove,
               ),
             ),
-            SizedBox(width: 10.0),
+            const SizedBox(width: 10.0),
             FloatingActionButton(
               heroTag: '333',
               onPressed: () => counterReader.initCount(),

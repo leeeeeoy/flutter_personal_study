@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_study/pages/packages/freezed/model/member.dart';
 import 'package:flutter_study/pages/packages/freezed/model/person.dart';
@@ -7,7 +9,7 @@ class FreezedScreen extends StatefulWidget {
   const FreezedScreen({Key? key}) : super(key: key);
 
   @override
-  _FreezedScreenState createState() => _FreezedScreenState();
+  State<FreezedScreen> createState() => _FreezedScreenState();
 }
 
 class _FreezedScreenState extends State<FreezedScreen> {
@@ -40,7 +42,7 @@ class _FreezedScreenState extends State<FreezedScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Freezed'),
+        title: const Text('Freezed'),
       ),
       body: Center(
         child: Column(
@@ -51,19 +53,19 @@ class _FreezedScreenState extends State<FreezedScreen> {
               children: [
                 ElevatedButton(
                     onPressed: () {
-                      print(user1.id);
+                      log('${user1.id}');
                     },
-                    child: Text('user1.id')),
+                    child: const Text('user1.id')),
                 ElevatedButton(
                     onPressed: () {
-                      print(user1.name);
+                      log(user1.name);
                     },
-                    child: Text('user1.name')),
+                    child: const Text('user1.name')),
                 ElevatedButton(
                     onPressed: () {
-                      print(user1.job);
+                      log(user1.job);
                     },
-                    child: Text('user1.job')),
+                    child: const Text('user1.job')),
               ],
             ),
             Row(
@@ -71,14 +73,14 @@ class _FreezedScreenState extends State<FreezedScreen> {
               children: [
                 ElevatedButton(
                     onPressed: () {
-                      print(user1.toString());
+                      log(user1.toString());
                     },
-                    child: Text('user1.toString()')),
+                    child: const Text('user1.toString()')),
                 ElevatedButton(
                     onPressed: () {
-                      print(user1.toJson());
+                      log('${user1.toJson()}');
                     },
-                    child: Text('user1.toJson()')),
+                    child: const Text('user1.toJson()')),
               ],
             ),
             Row(
@@ -86,14 +88,14 @@ class _FreezedScreenState extends State<FreezedScreen> {
               children: [
                 ElevatedButton(
                     onPressed: () {
-                      print(user1 == user2);
+                      log('${user1 == user2}');
                     },
-                    child: Text('user1 == user2')),
+                    child: const Text('user1 == user2')),
                 ElevatedButton(
                     onPressed: () {
-                      print(user1 == user3);
+                      log('${user1 == user3}');
                     },
-                    child: Text('user1 == user3')),
+                    child: const Text('user1 == user3')),
               ],
             ),
             Row(
@@ -101,36 +103,35 @@ class _FreezedScreenState extends State<FreezedScreen> {
               children: [
                 ElevatedButton(
                     onPressed: () {
-                      print(user1.hashCode == user2.hashCode);
+                      log('${user1.hashCode == user2.hashCode}');
                     },
-                    child: Text('user1.hashCode == user2.hashCode')),
+                    child: const Text('user1.hashCode == user2.hashCode')),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(onPressed: member1.hello, child: const Text('member1.hello()')),
+                ElevatedButton(
+                    onPressed: () {
+                      log(member1.nameLength);
+                    },
+                    child: const Text('member1.nameLength')),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
-                    onPressed: member1.hello, child: Text('member1.hello()')),
+                    onPressed: () {
+                      log('$member1');
+                    },
+                    child: const Text('member1')),
                 ElevatedButton(
                     onPressed: () {
-                      print(member1.nameLength);
+                      log('$member3');
                     },
-                    child: Text('member1.nameLength')),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                    onPressed: () {
-                      print(member1);
-                    },
-                    child: Text('member1')),
-                ElevatedButton(
-                    onPressed: () {
-                      print(member3);
-                    },
-                    child: Text('member3')),
+                    child: const Text('member3')),
               ],
             ),
             Row(
@@ -138,19 +139,19 @@ class _FreezedScreenState extends State<FreezedScreen> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    print(person.toString());
-                    print(personLoading.toString());
-                    print(personError.toString());
+                    log(person.toString());
+                    log(personLoading.toString());
+                    log(personError.toString());
                   },
-                  child: Text('Union Test'),
+                  child: const Text('Union Test'),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    print(mapWhen(person));
-                    print(mapWhen(personLoading));
-                    print(mapWhen(personError));
+                    log(mapWhen(person));
+                    log(mapWhen(personLoading));
+                    log(mapWhen(personError));
                   },
-                  child: Text('Peson when'),
+                  child: const Text('Peson when'),
                 ),
               ],
             ),

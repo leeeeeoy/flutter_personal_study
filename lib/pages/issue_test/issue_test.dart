@@ -5,8 +5,6 @@ class IssueTest extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('테스트'),
-    );
+    return const Text('테스트');
   }
 }

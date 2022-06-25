@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_study/pages/state_management/riverpod/weather_app_v2/pages/weather_home_page_v2.dart';
@@ -7,8 +9,10 @@ import 'package:get/get.dart';
 class LoginPage extends ConsumerStatefulWidget {
   static const String routeName = '/login';
 
+  const LoginPage({Key? key}) : super(key: key);
+
   @override
-  _LoginPageState createState() => _LoginPageState();
+  ConsumerState<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends ConsumerState<LoginPage> {
@@ -19,7 +23,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 0), () {
+    Future.delayed(const Duration(seconds: 0), () {
       ref.read(authProvider.notifier).tryAutoLogin();
     });
     super.initState();
@@ -33,7 +37,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
     form.save();
     if (ref.read(appConfigProvider).state.buildFlavor == 'dev') {
-      print('email: $email, password: $password');
+      log('email: $email, password: $password');
     }
 
     ref.read(authProvider.notifier).login(email, password);
@@ -43,15 +47,14 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   Widget build(BuildContext context) {
     ref.listen(authStateProvider, (AuthState state) {
       if (ref.read(appConfigProvider).state.buildFlavor == 'dev') {
-        print('---- state ----');
-        print('authenticated: ${state.authenticated}');
-        print('logginIn: ${state.loggingIn}');
-        print('tryingAutoLogin: ${state.tryingAutoLogin}');
-        print('error: ${state.error}');
+        log('---- state ----');
+        log('authenticated: ${state.authenticated}');
+        log('logginIn: ${state.loggingIn}');
+        log('tryingAutoLogin: ${state.tryingAutoLogin}');
+        log('error: ${state.error}');
       }
       if (state.authenticated == true) {
-        // Navigator.pushReplacementNamed(context, HomePage.routeName);
-        Get.to(WeatherHomePageV2());
+        Get.to(const WeatherHomePageV2());
       }
       if (state.error.isNotEmpty) {
         showDialog(
@@ -73,13 +76,13 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
   Widget buildBody(AuthState authState) {
     if (authState.tryingAutoLogin) {
-      return Center(
+      return const Center(
         child: CircularProgressIndicator(),
       );
     }
 
     if (authState.authenticated) {
-      return Center(
+      return const Center(
         child: Text(
           'Splash Screen',
           style: TextStyle(fontSize: 20.0),
@@ -94,12 +97,12 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         autovalidateMode: _autovalidateMode,
         child: ListView(
           children: [
-            SizedBox(height: 100.0),
+            const SizedBox(height: 100.0),
             TextFormField(
               keyboardType: TextInputType.emailAddress,
               autocorrect: false,
               textCapitalization: TextCapitalization.none,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Email',
               ),
@@ -115,11 +118,11 @@ class _LoginPageState extends ConsumerState<LoginPage> {
               },
               onSaved: (val) => email = val!,
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             TextFormField(
               obscureText: true,
               autocorrect: false,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Password',
               ),
@@ -135,13 +138,13 @@ class _LoginPageState extends ConsumerState<LoginPage> {
               },
               onSaved: (val) => password = val!,
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             ElevatedButton(
               onPressed: submit,
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 15.0),
                 child: authState.loggingIn
-                    ? SizedBox(
+                    ? const SizedBox(
                         width: 25,
                         height: 25,
                         child: CircularProgressIndicator(
@@ -150,7 +153,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           ),
                         ),
                       )
-                    : Text(
+                    : const Text(
                         'LOGIN',
                         style: TextStyle(
                           fontSize: 20.0,

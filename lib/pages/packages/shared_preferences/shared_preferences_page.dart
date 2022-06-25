@@ -5,7 +5,7 @@ class SharedPreferencesPage extends StatefulWidget {
   const SharedPreferencesPage({Key? key}) : super(key: key);
 
   @override
-  _SharedPreferencesPageState createState() => _SharedPreferencesPageState();
+  State<SharedPreferencesPage> createState() => _SharedPreferencesPageState();
 }
 
 class _SharedPreferencesPageState extends State<SharedPreferencesPage> {
@@ -44,13 +44,13 @@ class _SharedPreferencesPageState extends State<SharedPreferencesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Shared Preferences'),
+        title: const Text('Shared Preferences'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            Text(
+            const Text(
               'You have pushed the button this many times:',
               style: TextStyle(
                 fontSize: 20,
@@ -58,14 +58,14 @@ class _SharedPreferencesPageState extends State<SharedPreferencesPage> {
             ),
             Text(
               '$_counter',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
             ElevatedButton(
               onPressed: _initCounter,
-              child: Text('0으로 만들기'),
+              child: const Text('0으로 만들기'),
             )
           ],
         ),
@@ -73,7 +73,7 @@ class _SharedPreferencesPageState extends State<SharedPreferencesPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }

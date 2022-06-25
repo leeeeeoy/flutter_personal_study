@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 enum TemperatureUnit {
@@ -6,6 +8,6 @@ enum TemperatureUnit {
 }
 
 final settingsProvider = StateProvider<TemperatureUnit>((ref) {
-  print('>>> SettingsProvider <<<');
+  log('>>> SettingsProvider <<<');
   return TemperatureUnit.celcius;
 });

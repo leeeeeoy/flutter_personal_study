@@ -12,8 +12,7 @@ class Diary extends Table {
 
   TextColumn get content => text()();
 
-  DateTimeColumn get createdAt =>
-      dateTime().withDefault(Constant(DateTime.now()))();
+  DateTimeColumn get createdAt => dateTime().withDefault(Constant(DateTime.now()))();
 }
 
 class DiaryWithTag extends Table {
@@ -65,8 +64,7 @@ class DiaryDao extends DatabaseAccessor<MyDatabase> with _$DiaryDaoMixin {
         }
 
         return [
-          for (var id in diaryIds)
-            DiaryWithTagModel(diary: idToDiary[id]!, tags: idToTags[id]!)
+          for (var id in diaryIds) DiaryWithTagModel(diary: idToDiary[id]!, tags: idToTags[id]!)
         ];
       });
     });
@@ -79,7 +77,7 @@ class DiaryDao extends DatabaseAccessor<MyDatabase> with _$DiaryDaoMixin {
 
   Future insertDiary(DiaryCompanion data, String diaryTags) async {
     return transaction(() async {
-      final tags = diaryTags.split(',').length > 0
+      final tags = diaryTags.split(',').isNotEmpty
           ? diaryTags.split(',')
           : [
               diaryTags,
@@ -95,9 +93,7 @@ class DiaryDao extends DatabaseAccessor<MyDatabase> with _$DiaryDaoMixin {
           mode: InsertMode.insertOrIgnore,
         );
 
-        final tagInst = await (select(tag)
-              ..where((tbl) => tbl.name.equals(diaryTag)))
-            .getSingle();
+        final tagInst = await (select(tag)..where((tbl) => tbl.name.equals(diaryTag))).getSingle();
 
         tagIds.add(tagInst.id);
       }

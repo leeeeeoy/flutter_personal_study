@@ -6,13 +6,13 @@ class SliverAppbarScreen extends StatefulWidget {
   const SliverAppbarScreen({Key? key}) : super(key: key);
 
   @override
-  _SliverAppbarScreenState createState() => _SliverAppbarScreenState();
+  State<SliverAppbarScreen> createState() => _SliverAppbarScreenState();
 }
 
 class _SliverAppbarScreenState extends State<SliverAppbarScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Scaffold(
         body: CustomScrollView(
           slivers: [

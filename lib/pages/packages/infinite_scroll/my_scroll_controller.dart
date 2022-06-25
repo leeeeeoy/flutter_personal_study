@@ -34,7 +34,7 @@ class MyScrollController extends GetxController {
   _getData() async {
     isLoading.value = true;
 
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
 
     int offset = data.length;
 

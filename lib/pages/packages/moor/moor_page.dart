@@ -10,7 +10,7 @@ class MoorPage extends StatefulWidget {
   const MoorPage({Key? key}) : super(key: key);
 
   @override
-  _MoorPageState createState() => _MoorPageState();
+  State<MoorPage> createState() => _MoorPageState();
 }
 
 class _MoorPageState extends State<MoorPage> {
@@ -31,7 +31,7 @@ class _MoorPageState extends State<MoorPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Moor'),
+        title: const Text('Moor'),
       ),
       body: StreamBuilder<List<DiaryWithTagModel>>(
         stream: dao.streamDiariesWithTags(),
@@ -49,7 +49,7 @@ class _MoorPageState extends State<MoorPage> {
                   createdAt: item.diary.createdAt,
                 );
               },
-              separatorBuilder: (_, index) => Divider(),
+              separatorBuilder: (_, index) => const Divider(),
               itemCount: data.length,
             );
           } else {
@@ -59,9 +59,9 @@ class _MoorPageState extends State<MoorPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.to(WriteScreen());
+          Get.to(const WriteScreen());
         },
-        child: Icon(
+        child: const Icon(
           Icons.edit,
         ),
       ),

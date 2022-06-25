@@ -8,8 +8,7 @@ class CounterController extends StateController<int> {
   void decrement() => state--;
 }
 
-final counterStateControllerProvider =
-    StateNotifierProvider<CounterController, int>((ref) {
+final counterStateControllerProvider = StateNotifierProvider<CounterController, int>((ref) {
   return CounterController();
 });
 
@@ -31,21 +30,21 @@ class CounterStateController extends ConsumerWidget {
             children: [
               Text(
                 'conter1: $counter1',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
                 'conter1.state: ${counter1.state}',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
                 'conter2: $counter2',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                 ),
@@ -73,12 +72,11 @@ class CounterStateController extends ConsumerWidget {
               //     ref.read(counterStateControllerProvider.notifier).state++,
               child: const Icon(Icons.add),
             ),
-            SizedBox(width: 10.0),
+            const SizedBox(width: 10.0),
             FloatingActionButton(
               heroTag: '2',
               // onPressed: () => counter.state--,
-              onPressed: () =>
-                  ref.read(counterStateControllerProvider.notifier).state--,
+              onPressed: () => ref.read(counterStateControllerProvider.notifier).state--,
               child: const Icon(Icons.remove),
             ),
           ],

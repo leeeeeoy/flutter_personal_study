@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_study/pages/state_management/riverpod/weather_app_v2/providers/auth_repository_provider.dart';
 
@@ -56,7 +58,7 @@ class Auth extends StateNotifier<AuthState> {
         authenticated: true,
       );
     } catch (e) {
-      print(e);
+      log('$e');
       state = state.copyWith(
         loggingIn: false,
         error: e.toString(),
@@ -77,8 +79,7 @@ class Auth extends StateNotifier<AuthState> {
     state = state.copyWith(
       tryingAutoLogin: true,
     );
-    final bool authenticated =
-        await read(authRepositoryProvider).tryAutoLogin();
+    final bool authenticated = await read(authRepositoryProvider).tryAutoLogin();
     state = state.copyWith(
       tryingAutoLogin: false,
       authenticated: authenticated,

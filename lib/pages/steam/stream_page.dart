@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -10,8 +12,8 @@ class StreamPage extends StatefulWidget {
 
 class _StreamPageState extends State<StreamPage> {
   PublishSubject<int> subject = PublishSubject<int>();
-  BehaviorSubject<int> subject2 = new BehaviorSubject<int>();
-  ReplaySubject<int> subject3 = new ReplaySubject<int>();
+  BehaviorSubject<int> subject2 = BehaviorSubject<int>();
+  ReplaySubject<int> subject3 = ReplaySubject<int>();
 
   publishSubjectAdd() {
 /*this listener below will print every integer added to the subject: 1, 2, 3, ...*/
@@ -56,22 +58,22 @@ class _StreamPageState extends State<StreamPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Stream version of the Counter App')),
+      appBar: AppBar(title: const Text('Stream version of the Counter App')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             ElevatedButton(
               onPressed: publishSubjectAdd,
-              child: Text('PublishSubject'),
+              child: const Text('PublishSubject'),
             ),
             ElevatedButton(
               onPressed: behaviorSubject,
-              child: Text('BehaviorSubject'),
+              child: const Text('BehaviorSubject'),
             ),
             ElevatedButton(
               onPressed: replaySubject,
-              child: Text('ReplaySubject'),
+              child: const Text('ReplaySubject'),
             ),
           ],
         ),

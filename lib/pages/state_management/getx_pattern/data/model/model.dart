@@ -16,9 +16,9 @@ class MyModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.title;
-    data['body'] = this.body;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = title;
+    data['body'] = body;
     return data;
   }
 }

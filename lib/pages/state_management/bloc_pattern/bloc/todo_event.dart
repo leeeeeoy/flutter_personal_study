@@ -18,7 +18,7 @@ class CreateTodoEvent extends TodoEvent {
   });
 
   @override
-  List<Object> get props => [this.title];
+  List<Object> get props => [title];
 }
 
 class DeleteTodoEvent extends TodoEvent {
@@ -29,5 +29,5 @@ class DeleteTodoEvent extends TodoEvent {
   });
 
   @override
-  List<Object> get props => [this.todo];
+  List<Object> get props => [todo];
 }

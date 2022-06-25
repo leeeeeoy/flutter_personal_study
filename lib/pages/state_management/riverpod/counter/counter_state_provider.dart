@@ -6,6 +6,8 @@ final counterStateProvider = StateProvider<int>((ref) {
 });
 
 class ConterStateProvider extends ConsumerWidget {
+  const ConterStateProvider({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final counter = ref.watch(counterStateProvider);
@@ -19,14 +21,14 @@ class ConterStateProvider extends ConsumerWidget {
             children: [
               Text(
                 'counter: $counter',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
                 'counter.state: ${counter.state}',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                 ),
@@ -46,7 +48,7 @@ class ConterStateProvider extends ConsumerWidget {
               // onPressed: () => ref.read(counterStateProvider.notifier).state++,
               child: const Icon(Icons.add),
             ),
-            SizedBox(width: 10.0),
+            const SizedBox(width: 10.0),
             FloatingActionButton(
               heroTag: 'tag2',
               // onPressed: () => counter.state--,

@@ -7,7 +7,7 @@ class RetrofitScreen extends StatefulWidget {
   const RetrofitScreen({Key? key}) : super(key: key);
 
   @override
-  _RetrofitScreenState createState() => _RetrofitScreenState();
+  State<RetrofitScreen> createState() => _RetrofitScreenState();
 }
 
 class _RetrofitScreenState extends State<RetrofitScreen> {
@@ -38,14 +38,14 @@ class _RetrofitScreenState extends State<RetrofitScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Retrofit'),
+        title: const Text('Retrofit'),
       ),
       body: FutureBuilder(
         future: client.getNewsIDs(),
-        initialData: [],
+        initialData: const [],
         builder: (_, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }
@@ -59,7 +59,7 @@ class _RetrofitScreenState extends State<RetrofitScreen> {
                 future: client.getNewsDetail(ids[index]),
                 builder: (_, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(),
                     );
                   }

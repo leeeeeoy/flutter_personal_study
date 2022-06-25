@@ -5,6 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 final counterProvider = StateProvider((ref) => 0);
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
 
 void main() {
   testWidgets('update the UI when incrementing the state', (tester) async {
-    await tester.pumpWidget(ProviderScope(child: MyApp()));
+    await tester.pumpWidget(const ProviderScope(child: MyApp()));
 
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);
@@ -34,7 +36,7 @@ void main() {
   });
 
   testWidgets('the counter state is not shared between tests', (tester) async {
-    await tester.pumpWidget(ProviderScope(child: MyApp()));
+    await tester.pumpWidget(const ProviderScope(child: MyApp()));
 
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);

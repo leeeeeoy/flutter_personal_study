@@ -23,7 +23,7 @@ class Error extends TodoState {
   });
 
   @override
-  List<Object> get props => [this.message];
+  List<Object> get props => [message];
 }
 
 class Loaded extends TodoState {
@@ -34,5 +34,5 @@ class Loaded extends TodoState {
   });
 
   @override
-  List<Object> get props => [this.todos];
+  List<Object> get props => [todos];
 }

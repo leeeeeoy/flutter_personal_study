@@ -29,32 +29,18 @@ class ConterStateNotifierProvider extends ConsumerWidget {
             children: [
               Text(
                 'conter1: $counter1',
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                'conter1.state: ${counter1.state}',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
                 'conter2: $counter2',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              // Text(
-              //   'conter2: ${counter2.state}',
-              //   style: TextStyle(
-              //     fontSize: 32,
-              //     fontWeight: FontWeight.bold,
-              //   ),
-              // ),
             ],
           );
         }),
@@ -67,16 +53,15 @@ class ConterStateNotifierProvider extends ConsumerWidget {
             FloatingActionButton(
               heroTag: '11',
               // onPressed: () => counter.state++,
-              onPressed: () =>
-                  ref.read(counterStateNotifierProvider.notifier).increment(),
+              onPressed: () => ref.read(counterStateNotifierProvider.notifier).increment(),
               child: const Icon(Icons.add),
             ),
-            SizedBox(width: 10.0),
+            const SizedBox(width: 10.0),
             FloatingActionButton(
               heroTag: '22',
               // onPressed: () => counter.state++,
-              onPressed: () =>
-                  ref.read(counterStateNotifierProvider.notifier).state--,
+              // ignore: invalid_use_of_protected_member
+              onPressed: () => ref.read(counterStateNotifierProvider.notifier).state--,
               child: const Icon(Icons.remove),
             ),
           ],

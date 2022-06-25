@@ -3,6 +3,8 @@ import 'package:flutter_study/pages/packages/infinite_scroll/provider.dart';
 import 'package:provider/provider.dart';
 
 class MyScrollPage extends StatefulWidget {
+  const MyScrollPage({Key? key}) : super(key: key);
+
   @override
   State<MyScrollPage> createState() => _MyScrollPageState();
 }
@@ -24,14 +26,14 @@ class _MyScrollPageState extends State<MyScrollPage> {
 
     final loading = provider.loading;
 
-    if (loading && cache.length == 0) {
-      return Center(
+    if (loading && cache.isEmpty) {
+      return const Center(
         child: CircularProgressIndicator(),
       );
     }
 
-    if (!loading && cache.length == 0) {
-      return Center(
+    if (!loading && cache.isEmpty) {
+      return const Center(
         child: Text('아이템이 없습니다.'),
       );
     }
@@ -54,11 +56,11 @@ class _MyScrollPageState extends State<MyScrollPage> {
         }
 
         if (provider.hasMore) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         } else {
-          return Center(
+          return const Center(
             child: Text('더이상 아이템이 없습니다.'),
           );
         }
@@ -70,7 +72,7 @@ class _MyScrollPageState extends State<MyScrollPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Provider Infinite Scroll',
         ),
       ),

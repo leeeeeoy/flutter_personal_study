@@ -4,7 +4,7 @@ class MultiScrollPage extends StatefulWidget {
   const MultiScrollPage({Key? key}) : super(key: key);
 
   @override
-  _MultiScrollPageState createState() => _MultiScrollPageState();
+  State<MultiScrollPage> createState() => _MultiScrollPageState();
 }
 
 class _MultiScrollPageState extends State<MultiScrollPage> {
@@ -12,7 +12,7 @@ class _MultiScrollPageState extends State<MultiScrollPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Multi Scroll'),
+        title: const Text('Multi Scroll'),
       ),
       body: Row(
         children: [
@@ -26,7 +26,7 @@ class _MultiScrollPageState extends State<MultiScrollPage> {
                 color: Colors.cyan[100 * (index % 9)],
                 child: Text(
                   'Grid Item ${index + 1}',
-                  style: TextStyle(fontSize: 20),
+                  style: const TextStyle(fontSize: 20),
                 ),
               ),
             ),
@@ -41,7 +41,7 @@ class _MultiScrollPageState extends State<MultiScrollPage> {
                 color: Colors.cyan[100 * (index % 9)],
                 child: Text(
                   'Grid Item ${index + 1}',
-                  style: TextStyle(fontSize: 20),
+                  style: const TextStyle(fontSize: 20),
                 ),
               ),
             ),
@@ -56,7 +56,7 @@ class _MultiScrollPageState extends State<MultiScrollPage> {
                 color: Colors.cyan[100 * (index % 9)],
                 child: Text(
                   'Grid Item ${index + 1}',
-                  style: TextStyle(fontSize: 20),
+                  style: const TextStyle(fontSize: 20),
                 ),
               ),
             ),

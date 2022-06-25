@@ -4,7 +4,7 @@ class ListViewPage extends StatefulWidget {
   const ListViewPage({Key? key}) : super(key: key);
 
   @override
-  _ListViewPageState createState() => _ListViewPageState();
+  State<ListViewPage> createState() => _ListViewPageState();
 }
 
 class _ListViewPageState extends State<ListViewPage> {
@@ -16,7 +16,7 @@ class _ListViewPageState extends State<ListViewPage> {
           title: const Text('ListView'),
         ),
         body: ListView(
-          children: [
+          children: const [
             Text('1'),
             Text('2'),
             Text('3'),

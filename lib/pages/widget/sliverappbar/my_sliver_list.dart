@@ -4,7 +4,7 @@ class MySliverList extends StatefulWidget {
   const MySliverList({Key? key}) : super(key: key);
 
   @override
-  _MySliverListState createState() => _MySliverListState();
+  State<MySliverList> createState() => _MySliverListState();
 }
 
 class _MySliverListState extends State<MySliverList> {
@@ -19,6 +19,7 @@ class _MySliverListState extends State<MySliverList> {
             color: Colors.purple[100 * (index % 10)],
             child: Text(
               'List Item $index',
+              // ignore: prefer_const_constructors
               style: TextStyle(fontSize: 20),
             ),
           );

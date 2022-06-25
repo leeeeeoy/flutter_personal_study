@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class AjaxProvider extends ChangeNotifier {
   List<int> cache = [];
@@ -8,7 +7,7 @@ class AjaxProvider extends ChangeNotifier {
   bool hasMore = true;
 
   _makeRequest({required int nextId}) async {
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
 
     if (nextId == 100) {
       return [];
@@ -26,7 +25,7 @@ class AjaxProvider extends ChangeNotifier {
 
     final items = await _makeRequest(nextId: nextId);
 
-    this.cache = [...this.cache, ...items];
+    cache = [...cache, ...items];
 
     if (items.length == 0) {
       hasMore = false;

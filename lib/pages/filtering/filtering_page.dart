@@ -6,7 +6,7 @@ class FilteringPage extends StatefulWidget {
   const FilteringPage({Key? key}) : super(key: key);
 
   @override
-  _FilteringPageState createState() => _FilteringPageState();
+  State<FilteringPage> createState() => _FilteringPageState();
 }
 
 class _FilteringPageState extends State<FilteringPage> {
@@ -16,7 +16,7 @@ class _FilteringPageState extends State<FilteringPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Filtering'),
+        title: const Text('Filtering'),
       ),
       body: GetBuilder(
         init: controller,
@@ -26,15 +26,15 @@ class _FilteringPageState extends State<FilteringPage> {
             children: [
               Text(
                 '${controller.users[0].isLikeFlutter}',
-                style: TextStyle(fontSize: 24),
+                style: const TextStyle(fontSize: 24),
               ),
               Text(
                 '${controller.users[1].isLikeFlutter}',
-                style: TextStyle(fontSize: 24),
+                style: const TextStyle(fontSize: 24),
               ),
               Text(
                 '${controller.users[2].isLikeFlutter}',
-                style: TextStyle(fontSize: 24),
+                style: const TextStyle(fontSize: 24),
               ),
             ],
           ),

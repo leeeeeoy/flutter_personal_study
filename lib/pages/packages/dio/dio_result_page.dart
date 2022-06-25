@@ -16,15 +16,15 @@ class DioResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _client = RestClient(dio);
+    final client = RestClient(dio);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dio'),
+        title: const Text('Dio'),
       ),
       body: Center(
         child: FutureBuilder<User?>(
-          future: _client.getUser(id: 1),
+          future: client.getUser(id: 1),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               User? userInfo = snapshot.data;
@@ -34,20 +34,20 @@ class DioResultPage extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.network(userData.avatar),
-                    SizedBox(height: 16.0),
+                    const SizedBox(height: 16.0),
                     Text(
                       '${userInfo.data.firstName} ${userInfo.data.lastName}',
-                      style: TextStyle(fontSize: 24.0),
+                      style: const TextStyle(fontSize: 24.0),
                     ),
                     Text(
                       userData.email,
-                      style: TextStyle(fontSize: 24.0),
+                      style: const TextStyle(fontSize: 24.0),
                     ),
                   ],
                 );
               }
             }
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           },
         ),
       ),

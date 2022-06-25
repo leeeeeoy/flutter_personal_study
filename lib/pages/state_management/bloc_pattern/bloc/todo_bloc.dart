@@ -26,7 +26,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
     try {
       yield Loading();
 
-      final resp = await this.repository.listTodo();
+      final resp = await repository.listTodo();
 
       final todos = resp
           .map<Todo>(
@@ -62,7 +62,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
 
         yield Loaded(todos: newTodos);
 
-        final resp = await this.repository.createTodo(newTodo);
+        final resp = await repository.createTodo(newTodo);
 
         yield Loaded(
           todos: [
@@ -79,10 +79,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
   Stream<TodoState> _mapDeleteTodoEvent(DeleteTodoEvent event) async* {
     try {
       if (state is Loaded) {
-        final newTodos = (state as Loaded)
-            .todos
-            .where((todo) => todo.id != event.todo.id)
-            .toList();
+        final newTodos = (state as Loaded).todos.where((todo) => todo.id != event.todo.id).toList();
 
         yield Loaded(todos: newTodos);
 

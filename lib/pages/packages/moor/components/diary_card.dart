@@ -6,7 +6,8 @@ class DiaryCard extends StatefulWidget {
   final List<String> tags;
   final DateTime createdAt;
 
-  DiaryCard({
+  const DiaryCard({
+    super.key,
     required this.title,
     required this.content,
     required this.tags,
@@ -14,25 +15,23 @@ class DiaryCard extends StatefulWidget {
   });
 
   @override
-  _DiaryCardState createState() => _DiaryCardState();
+  State<DiaryCard> createState() => _DiaryCardState();
 }
 
 class _DiaryCardState extends State<DiaryCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16.0),
-      child: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            renderTitle(),
-            Container(height: 8),
-            renderContent(),
-            Container(height: 8),
-            renderTags(),
-          ],
-        ),
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          renderTitle(),
+          Container(height: 8),
+          renderContent(),
+          Container(height: 8),
+          renderTags(),
+        ],
       ),
     );
   }
@@ -45,7 +44,7 @@ class _DiaryCardState extends State<DiaryCard> {
             (e) => Container(
               color: Colors.green,
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
+                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
                 child: Text(
                   e,
                 ),
@@ -62,7 +61,7 @@ class _DiaryCardState extends State<DiaryCard> {
         Flexible(
           child: Text(
             widget.content,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.grey,
             ),
             maxLines: 3,
@@ -82,13 +81,13 @@ class _DiaryCardState extends State<DiaryCard> {
       children: [
         Text(
           widget.title,
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
           ),
         ),
         Text(
           dateStr,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.grey,
           ),
         ),

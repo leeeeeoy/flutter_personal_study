@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:convert';
 
 import 'package:flutter_study/pages/state_management/getx_pattern/data/model/model.dart';
@@ -16,13 +17,13 @@ class MyApiClient {
       var response = await httpClient.get(baseUrl);
       if (response.statusCode == 200) {
         Iterable jsonResponse = json.decode(response.body);
-        List<MyModel> listMyModel =
-            jsonResponse.map((model) => MyModel.fromJson(model)).toList();
+        List<MyModel> listMyModel = jsonResponse.map((model) => MyModel.fromJson(model)).toList();
         return listMyModel;
-      } else
-        print('erro');
+      } else {
+        log('erro');
+      }
     } catch (_) {
-      print(_);
+      log('$_');
     }
   }
 }

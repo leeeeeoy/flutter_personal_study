@@ -2,7 +2,7 @@ import 'package:flutter_study/pages/state_management/bloc_pattern/model/todo.dar
 
 class TodoRepository {
   Future<List<Map<String, dynamic>>> listTodo() async {
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
 
     return [
       {
@@ -20,13 +20,13 @@ class TodoRepository {
 
   Future<Map<String, dynamic>> createTodo(Todo todo) async {
     /// body - request - response - return
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
 
     return todo.toJson();
   }
 
   Future<Map<String, dynamic>> deleteTodo(Todo todo) async {
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
 
     return todo.toJson();
   }

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,12 +8,12 @@ class MySliverGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(Get.size.width);
+    log('${Get.size.width}');
     return SliverGrid(
       // gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
       //   maxCrossAxisExtent: 250,
       // ),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
       ),
       delegate: SliverChildBuilderDelegate(
@@ -23,7 +25,7 @@ class MySliverGrid extends StatelessWidget {
               color: Colors.cyan[100 * (index % 9)],
               child: Text(
                 'Grid Item ${index + 1}',
-                style: TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 20),
               ),
             );
           } else if (index == 1) {
@@ -33,7 +35,7 @@ class MySliverGrid extends StatelessWidget {
               color: Colors.cyan[100 * (index % 9)],
               child: Text(
                 'Grid Item ${index + 1}',
-                style: TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 20),
               ),
             );
           } else if (index == 2) {
@@ -43,7 +45,7 @@ class MySliverGrid extends StatelessWidget {
               color: Colors.cyan[100 * (index % 9)],
               child: Text(
                 'Grid Item ${index + 1}',
-                style: TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 20),
               ),
             );
           }
@@ -52,7 +54,7 @@ class MySliverGrid extends StatelessWidget {
             color: Colors.cyan[100 * (index % 9)],
             child: Text(
               'Grid Item ${index + 1}',
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
           );
         },
